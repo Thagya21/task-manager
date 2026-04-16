@@ -27,7 +27,7 @@ function Taskpage () {
     }
     const editTask = (id: string) => {
         const newName = prompt('Enter new task name');
-        
+        if (!newName) return;
         setTasks(prev => prev.map(task => 
             task.id === id ?
             {...task, name: newName} : task
@@ -46,8 +46,9 @@ function Taskpage () {
 <TaskList 
   tasks={tasks} 
   onDelete={deleteTask} 
-  onToggleStatus={toggleStatus} 
-/>
+  onToggleStatus={toggleStatus}
+    onEdit={editTask}
+    />
 
     </div>
     )

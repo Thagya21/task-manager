@@ -5,9 +5,10 @@ type Props = {
     tasks: Task[]
     onDelete : (id: string) => void
     onToggleStatus : (id: string) => void
+    onEdit : (id: string) => void
 }
 function TaskList
-({tasks, onDelete, onToggleStatus}: Props) {
+({tasks, onDelete, onToggleStatus, onEdit}: Props) {
     return (
         <ul>
             {tasks.map((task) => (
@@ -16,6 +17,7 @@ function TaskList
                     task={task}
                     onDelete={onDelete}
                     onToggleStatus={onToggleStatus}
+                    onEdit={onEdit}
                 />
                
             ))}
